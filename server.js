@@ -16,8 +16,8 @@ const profile = require('./controllers/profile');
 const knex = require("knex")({
     client: 'pg',
     connection: {
-        host: process.env.DATABASE_URL,
-        ssl:true
+        connectionString: process.env.DATABASE_URL,
+        ssl: true
     }
 });
 
@@ -45,6 +45,6 @@ app.put('/image', (req, res) => { image.handleImage(req, res, knex) })
 
 app.post('/imageurl', (req, res) => { image.handleApiCall(req, res) })
 
-app.listen(process.env.PORT||3001, () => {
+app.listen(process.env.PORT || 3001, () => {
     console.log("app is running");
 })

@@ -16,9 +16,9 @@ const profile = require('./controllers/profile');
 const knex = require("knex")({
     client: 'pg',
     connection: {
-        host: '127.0.0.1',
+        host: 'postgresql-convex-97245',
         user: 'postgres',
-        password: '1237',
+        password: '',
         database: 'smart_brain'
     }
 });
@@ -34,7 +34,7 @@ app.use(cors());
 
 
 app.get('/', (req, res) => {
-    res.send()
+    res.send('it is working');
 });
 
 app.post('/signin', (req, res) => { signin.handleSignin(req, res, knex, bcrypt) });
